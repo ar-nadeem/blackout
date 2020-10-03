@@ -25,7 +25,7 @@ SECRET_KEY = '+xouxqk=e-r1v8h#e^u0reh4@2#uzco7odzd@0n&i%t3*4fnoq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1","solar-inverter.herokuapp.com/"]
+ALLOWED_HOSTS = ["127.0.0.1","solar-inverter.herokuapp.com"]
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
