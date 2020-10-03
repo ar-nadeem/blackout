@@ -1,0 +1,1 @@
+web: gunicorn blackout.wsgi --log-file -
