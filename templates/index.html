@@ -1,0 +1,285 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    <title>Solar Home</title>
+  </head>
+  <body>
+
+  <div class="container-fluid border mb-2 border-dark rounded-lg" >
+    <div class="row justify-content-md-center">
+    <div class="card text-white bg-primary mb-3 " style="max-width: 18rem;">
+      <div class="card-header">Power Mode</div>
+          <div class="card-body">
+                <h5 class="card-title">{{ mode }}</h5>
+
+                <p class="card-text">{% if mode == 'Solar / Battery' %}Everything is running through Solar Power !{% else  %}Using grid power to run everything.{%  endif %}</p>
+          </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm">
+<div class="container-fluid border mb-2 border-dark rounded-lg">
+<div class="row">
+    <div class="col-sm">
+       <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+      <div class="card-header">Grid Voltage</div>
+          <div class="card-body">
+                <h5 class="card-title">{{ gridVoltage }} Volts</h5>
+                <p class="card-text">Voltage coming through grid.</p>
+          </div>
+    </div>
+    </div>
+    <div class="col-sm">
+             <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+      <div class="card-header">Grid Frequency</div>
+          <div class="card-body">
+                <h5 class="card-title">{{ gridFreq }} Hertz</h5>
+                <p class="card-text">Grid voltage frequency.</p>
+          </div>
+    </div>
+    </div>
+</div>
+</div>
+        </div>
+<div class="col-sm">
+<div class="container-fluid border mb-2 border-dark rounded-lg">
+    <div class="row">
+
+    <div class="col-sm">
+             <div class="card text-white  mb-3" style="max-width: 18rem;background-color: #b8a200">
+      <div class="card-header">Output Voltage</div>
+          <div class="card-body">
+                <h5 class="card-title">{{ outputVoltage }} Volts</h5>
+                <p class="card-text">Voltage coming through Inverter.</p>
+          </div>
+    </div>
+
+    </div>
+    <div class="col-sm">
+             <div class="card text-white  mb-3" style="max-width: 18rem;background-color: #b8a200">
+      <div class="card-header">Output Frequency</div>
+          <div class="card-body">
+                <h5 class="card-title">{{ outputFreq }} Hertz</h5>
+                <p class="card-text">Inverter voltage frequency.</p>
+          </div>
+    </div>
+
+    </div>
+</div>
+</div>
+
+</div>
+  </div>
+</div>
+
+
+<div class="container-fluid border mb-2 border-dark rounded-lg">
+
+<div class="row">
+    <div class="col-sm">
+       <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+      <div class="card-header">Output Power Total.</div>
+          <div class="card-body">
+                <h5 class="card-title">{{ outputPowerApparent }} Watt</h5>
+                <p class="card-text">Total output power.</p>
+          </div>
+    </div>
+    </div>
+    <div class="col-sm">
+             <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+      <div class="card-header">Output Power Active</div>
+          <div class="card-body">
+                <h5 class="card-title">{{ outputPowerActive }} Watt</h5>
+                <p class="card-text">Total output power inuse.</p>
+          </div>
+    </div>
+    </div>
+
+
+
+
+
+    <div class="col-sm">
+       <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+      <div class="card-header">Percentage Load</div>
+          <div class="card-body">
+                <div class="progress">
+                 <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width:{{ loadPercent }}%" aria-valuenow="{{ loadPercent }}" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <h5 class="card-title">{{ loadPercent }} %</h5>
+                <p class="card-text">Percentage Load.</p>
+          </div>
+    </div>
+    </div>
+
+</div>
+        </div>
+
+
+<div class="container-fluid border mb-2 border-dark rounded-lg">
+
+<div class="row">
+    <div class="col-sm">
+       <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+      <div class="card-header">Bus Voltage</div>
+          <div class="card-body">
+                <h5 class="card-title">{{ busVoltage }} Volts</h5>
+                <p class="card-text">Dont know what it is.</p>
+          </div>
+    </div>
+    </div>
+    <div class="col-sm">
+             <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+      <div class="card-header">Battery Voltage</div>
+          <div class="card-body">
+                <h5 class="card-title">{{ batteryVoltage }} Volts</h5>
+                <p class="card-text">battery output voltage.</p>
+          </div>
+    </div>
+    </div>
+    <div class="col-sm">
+             <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+      <div class="card-header">Battery SSC Voltage</div>
+          <div class="card-body">
+                <h5 class="card-title">{{ batteryVoltageSCC }} Volts</h5>
+                <p class="card-text">battery SSC voltage.</p>
+          </div>
+    </div>
+    </div>
+
+
+
+
+
+    <div class="col-sm">
+       <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+      <div class="card-header">Battery Current</div>
+          <div class="card-body">
+                <h5 class="card-title">{{ batteryCurrent }} Amps</h5>
+                <p class="card-text">Battery current.</p>
+          </div>
+    </div>
+    </div>
+    <div class="col-sm">
+       <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+      <div class="card-header">Battery Discharge Current</div>
+          <div class="card-body">
+                <h5 class="card-title">{{ batteryDischargeCurrent }} Amps</h5>
+                <p class="card-text">Battery discharge current.</p>
+          </div>
+    </div>
+    </div>
+
+        <div class="col-sm">
+       <div class="card  bg-light text-dark mb-3" style="max-width: 18rem;">
+      <div class="card-header">Battery Capacity</div>
+          <div class="card-body">
+                <div class="progress">
+                 <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width:{{ batteryCapacity }}%" aria-valuenow="{{ loadPercent }}" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <h5 class="card-title">{{ batteryCapacity }} %</h5>
+                <p class="card-text">Battery charge remaining.</p>
+          </div>
+    </div>
+    </div>
+
+</div>
+        </div>
+
+
+<div class="container-fluid border mb-2 border-dark rounded-lg">
+
+<div class="row">
+    <div class="col-sm">
+       <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+      <div class="card-header">Temperature</div>
+          <div class="card-body">
+                <h5 class="card-title">{{ temperature }} Kelvins</h5>
+                <p class="card-text">Inverter Temperature.</p>
+          </div>
+    </div>
+    </div>
+    <div class="col-sm">
+             <div class="card bg-dark text-white  mb-3" style="max-width: 18rem;">
+      <div class="card-header">Solar Current</div>
+          <div class="card-body">
+                <h5 class="card-title">{{ solarCurrent }} Amps</h5>
+                <p class="card-text">Solar panel current.</p>
+          </div>
+    </div>
+    </div>
+    <div class="col-sm">
+             <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+      <div class="card-header">Solar Voltage</div>
+          <div class="card-body">
+                <h5 class="card-title">{{ solarVoltage }} Volts</h5>
+                <p class="card-text">Solar panel voltage.</p>
+          </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+</div>
+        </div>
+  <div class="container-fluid border mb-2 border-dark rounded-lg">
+
+<div class="row">
+    <div class="col-sm">
+       <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+      <div class="card-header">Status Code</div>
+          <div class="card-body">
+                <h5 class="card-title">{{ status }}</h5>
+                <p class="card-text">Binary status code.</p>
+          </div>
+    </div>
+    </div>
+    <div class="col-sm">
+             <div class="card bg-danger text-white  mb-3" style="max-width: 18rem;">
+      <div class="card-header">Warning Code</div>
+          <div class="card-body">
+                <h5 class="card-title">{{ warning }}</h5>
+                <p class="card-text">Binary warning code.</p>
+          </div>
+    </div>
+    </div>
+
+
+
+
+
+
+</div>
+        </div>
+
+
+
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>
